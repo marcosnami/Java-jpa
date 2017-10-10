@@ -1,6 +1,7 @@
-package com.alura.javajpa;
+package com.alura.javajpa.test;
 
 import com.alura.javajpa.model.Conta;
+import com.alura.javajpa.utils.JPAUtil;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -9,7 +10,7 @@ import javax.persistence.Persistence;
 /**
  * Created by MarcosNami on 10/9/2017.
  */
-public class TestaConta {
+public class TestPersist {
 
     public static void main(String[] args) {
 
@@ -19,15 +20,13 @@ public class TestaConta {
         conta.setAgencia("0001");
         conta.setNumero("123456-7");
 
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("financas-postgresql");
-        EntityManager em = emf.createEntityManager();
+        EntityManager em = new JPAUtil().getEntityManager();
 
         em.getTransaction().begin();
         em.persist(conta);
         em.getTransaction().commit();
 
         em.close();
-        emf.close();
 
 
     }
