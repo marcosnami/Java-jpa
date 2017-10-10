@@ -7,6 +7,7 @@
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <!-- Aqui sao listadas todas as entidades -->
         <class>com.alura.javajpa.model.Conta</class>
+        <class>com.alura.javajpa.model.Movimentacao</class>
         <properties>
             <!-- Propriedades do JDBC -->
             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
