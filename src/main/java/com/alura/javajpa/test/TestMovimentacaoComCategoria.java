@@ -21,7 +21,7 @@ public class TestMovimentacaoComCategoria {
         Conta conta = new Conta();
         conta.setId(2);
 
-        Categoria categoria1 = new Categoria("Vaigens");
+        Categoria categoria1 = new Categoria("Viagens");
         Categoria categoria2 = new Categoria("Negocios");
 
         Movimentacao movimentacao1 = new Movimentacao();

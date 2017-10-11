@@ -1,9 +1,7 @@
 package com.alura.javajpa.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 /**
  * Created by MarcosNami on 10/8/2017.
@@ -18,6 +16,9 @@ public class Conta {
     private String numero;
     private String banco;
     private String agencia;
+
+    @OneToMany(mappedBy = "conta")
+    private List<Movimentacao> movimentacoes;
 
     public Integer getId() {
         return id;
@@ -59,6 +60,14 @@ public class Conta {
         this.agencia = agencia;
     }
 
+    public List<Movimentacao> getMovimentacoes() {
+        return movimentacoes;
+    }
+
+    public void setMovimentacoes(List<Movimentacao> movimentacoes) {
+        this.movimentacoes = movimentacoes;
+    }
+
     @Override
     public String toString() {
         return "Conta{" +
@@ -69,4 +78,5 @@ public class Conta {
                 ", agencia='" + agencia + '\'' +
                 '}';
     }
+
 }
