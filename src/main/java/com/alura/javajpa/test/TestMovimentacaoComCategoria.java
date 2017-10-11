@@ -28,7 +28,7 @@ public class TestMovimentacaoComCategoria {
         movimentacao1.setData(Calendar.getInstance());
         movimentacao1.setDescricao("Viagem a SP");
         movimentacao1.setTipo(TipoMovimentacao.SAIDA);
-        movimentacao1.setValor(new BigDecimal("100.0"));
+        movimentacao1.setValor(new BigDecimal("200.0"));
         movimentacao1.setCategorias(Arrays.asList(categoria1, categoria2));
         movimentacao1.setConta(conta);
 
@@ -36,7 +36,7 @@ public class TestMovimentacaoComCategoria {
         movimentacao2.setData(Calendar.getInstance());
         movimentacao2.setDescricao("Viagem ao RJ");
         movimentacao2.setTipo(TipoMovimentacao.SAIDA);
-        movimentacao2.setValor(new BigDecimal("300.0"));
+        movimentacao2.setValor(new BigDecimal("500.0"));
         movimentacao2.setCategorias(Arrays.asList(categoria1, categoria2));
         movimentacao2.setConta(conta);
 
