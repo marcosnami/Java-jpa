@@ -1,5 +1,6 @@
 package com.alura.javajpa.test;
 
+import com.alura.javajpa.dao.MovimentacaoDao;
 import com.alura.javajpa.model.Conta;
 import com.alura.javajpa.model.Movimentacao;
 import com.alura.javajpa.model.TipoMovimentacao;
@@ -22,16 +23,10 @@ public class TestJPQL {
         Conta conta = new Conta();
         conta.setId(2);
 
-        String jpql = "select m from Movimentacao m where m.conta = :pConta" +
-                " and m.tipo = :pTipo" +
-                " order by m.valor desc";
-        Query query = em.createQuery(jpql);
-        query.setParameter("pConta", conta);
-        query.setParameter("pTipo", TipoMovimentacao.ENTRADA);
+        MovimentacaoDao dao = new MovimentacaoDao(em);
+        List<Movimentacao> movimentacoes = dao.getMovimentacaoPorTipo(TipoMovimentacao.SAIDA, conta);
 
-        List<Movimentacao> resultList = query.getResultList();
-
-        for (Movimentacao movimentacao : resultList) {
+        for (Movimentacao movimentacao : movimentacoes) {
             System.out.println("Descricao: " + movimentacao.getDescricao());
             System.out.println("Conta.id: " + movimentacao.getConta().getId());
         }
